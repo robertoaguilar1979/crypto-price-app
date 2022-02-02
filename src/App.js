@@ -33,6 +33,11 @@ function App() {
         symbol={coin.symbol}
         icon={coin.icon}
         rank={coin.rank}
+        marketCap={coin.marketCap}
+        volume={coin.volume}
+        priceChange1h={coin.priceChange1h}
+        priceChange1d={coin.priceChange1d}
+        priceChange1w={coin.priceChange1w}
       />
     );
   });
