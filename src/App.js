@@ -2,7 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import Coins from "./components/Coins";
-import cryptoKing from "./img/cryptoKing.svg";
+import cryptoKing from "./img/fullLogo.svg";
 
 function App() {
   // useState hook
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="cryptoHeader">
+      <div className="header">
         <img className="logo" src={cryptoKing} alt="cryptoKing logo" />
 
         <input
@@ -56,7 +56,7 @@ function App() {
           }}
         />
       </div>
-      <div className="cryptoDisplay">{mapCoins}</div>
+      <div className="list">{mapCoins}</div>
     </div>
   );
 }
