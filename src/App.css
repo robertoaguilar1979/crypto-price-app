@@ -90,6 +90,16 @@ body {
   margin-right: 2em;
 }
 
+.red {
+  color: rgb(240, 11, 11);
+  /* color: #ea3943; */
+}
+
+.green {
+  color: rgb(14, 214, 14);
+  /* color: #16c784; */
+}
+
 @media (max-width: 1260px) {
   .coin {
     width: unset;

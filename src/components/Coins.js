@@ -41,17 +41,17 @@ function Coins({
       </div>
       <div>
         <h2>1h% </h2>
-        <p>{priceChange1h}%</p>
+        <p className={priceChange1h < 0 ? "red" : "green"}>{priceChange1h}%</p>
       </div>
 
       <div>
         <h2>24h% </h2>
-        <p>{priceChange1d}%</p>
+        <p className={priceChange1d < 0 ? "red" : "green"}>{priceChange1d}%</p>
       </div>
 
       <div>
         <h2>7d% </h2>
-        <p>{priceChange1w}%</p>
+        <p className={priceChange1w < 0 ? "red" : "green"}>{priceChange1w}%</p>
       </div>
 
       <div>
