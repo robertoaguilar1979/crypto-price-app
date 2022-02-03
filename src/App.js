@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import Coins from "./components/Coins";
+import cryptoKing from "./img/cryptoKing.svg";
 
 function App() {
   // useState hook
@@ -45,9 +46,11 @@ function App() {
   return (
     <div className="App">
       <div className="cryptoHeader">
+        <img className="logo" src={cryptoKing} alt="cryptoKing logo" />
+
         <input
           type="text"
-          placeholder="search name of coin..."
+          placeholder="search name"
           onChange={(event) => {
             setSearchWord(event.target.value);
           }}
