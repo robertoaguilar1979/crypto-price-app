@@ -14,36 +14,67 @@ function Coins({
 }) {
   return (
     <div className="coin">
-      <h2>Rank: {rank}</h2>
+      <div>
+        <h2>Rank </h2>
+        <p>{rank}</p>
+      </div>
+
       <div className="cryptoName">
         <img src={icon} alt="crypto icon image" />
-        <h2>{name} </h2>
+        <p>{name} </p>
       </div>
-      <h2> Symbol: {symbol} </h2>
-      <h2>
-        Price: $
-        {price.toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
-      </h2>
-      <h2>1h: {priceChange1h}</h2>
-      <h2>24h: {priceChange1d}</h2>
-      <h2>7d: {priceChange1w}</h2>
-      <h2>
-        24h Volume: $
-        {parseFloat(volume).toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
-      </h2>
-      <h2>
-        Mkt Cap: $
-        {parseFloat(marketCap).toLocaleString("en-US", {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
-      </h2>
+
+      <div>
+        <h2> Symbol </h2>
+        <p>{symbol}</p>
+      </div>
+
+      <div>
+        <h2>Price </h2>
+        <p>
+          $
+          {price.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
+        </p>
+      </div>
+      <div>
+        <h2>1h% </h2>
+        <p>{priceChange1h}%</p>
+      </div>
+
+      <div>
+        <h2>24h% </h2>
+        <p>{priceChange1d}%</p>
+      </div>
+
+      <div>
+        <h2>7d% </h2>
+        <p>{priceChange1w}%</p>
+      </div>
+
+      <div>
+        <h2>24h Volume </h2>
+        <p>
+          $
+          {parseFloat(volume).toLocaleString("en-US", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          })}
+        </p>
+      </div>
+
+      <div className="center">
+        <h2>Mkt Cap </h2>
+        <p>
+          $
+          {parseFloat(marketCap).toLocaleString("en-US", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          })}
+        </p>
+      </div>
     </div>
   );
 }

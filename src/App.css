@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
 .App {
   text-align: center;
 }
@@ -7,17 +9,32 @@
   padding: 0;
 }
 
+h2 {
+  font-size: 1rem;
+  margin-top: 0.25em;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  word-spacing: 5px;
+  color: rgb(189, 209, 217);
+}
+
+p {
+  margin-top: 0.4em;
+  letter-spacing: 2px;
+  color: rgb(240, 246, 252);
+}
+
 .App {
   height: auto;
   width: 100vw;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
   padding: 0%;
   margin: 0%;
   background-color: rgb(13, 17, 23);
-  color: rgb(240, 246, 252);
+  color: rgb(189, 209, 217);
+  font-family: "Poppins", sans-serif;
 }
 
 .cryptoHeader {
@@ -52,16 +69,16 @@ body {
 
 .coin {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding: 1em;
   width: 1200px;
-  height: 90px;
+  /* height: 90px; */
   background-color: rgb(22, 27, 34);
   color: rgb(240, 246, 252);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
-  margin: 20px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -69,15 +86,81 @@ body {
   height: 40px;
 }
 
-.cryptoName h2 {
-  font-size: 1rem;
-  margin-top: 0.25em;
+.coin > div {
+  margin-right: 2em;
 }
 
-.coin > h2 {
-  font-size: 1.5rem;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
+@media (max-width: 1260px) {
+  .coin {
+    width: unset;
+    max-width: 1000px;
+  }
+
+  h2 {
+    font-size: 0.85rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 1000px) {
+  .coin {
+    width: unset;
+    max-width: 900px;
+    padding: 0.25em;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 800px) {
+  .coin {
+    width: unset;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1em;
+    padding: 0.75em;
+    gap: 3em;
+  }
+  .coin > div {
+    margin-right: unset;
+  }
+  h2 {
+    font-size: 0.85rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 460px) {
+  .coin {
+    width: unset;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 1em;
+    padding: 1.75em;
+    gap: 1.5em;
+  }
+
+  .coin h2 {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .coin p {
+    font-size: 0.85rem;
+    text-align: center;
+  }
+  .center {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-right: unset;
+  }
 }
