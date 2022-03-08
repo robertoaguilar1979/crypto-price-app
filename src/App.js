@@ -50,7 +50,7 @@ function App() {
 
         <input
           type="text"
-          placeholder="search name"
+          placeholder="search coin name"
           onChange={(event) => {
             setSearchWord(event.target.value);
           }}
