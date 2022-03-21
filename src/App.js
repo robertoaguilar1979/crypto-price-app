@@ -3,11 +3,15 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import Coins from "./components/Coins";
 import cryptoKing from "./img/fullLogo.svg";
+import ReactPaginate from "react-paginate";
 
 function App() {
   // useState hook
   const [listOfCoins, setListOfCoins] = useState([]);
   const [searchWord, setSearchWord] = useState("");
+  //pagination hooks
+  const [cryptoCoin, setCryptoCoin] = useState(second);
+  const [pageNumber, setPageNumber] = useState(0);
 
   //useEffect hook
   useEffect(() => {
