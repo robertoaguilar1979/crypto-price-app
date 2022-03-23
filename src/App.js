@@ -13,6 +13,14 @@ function App() {
   const [cryptoCoin, setCryptoCoin] = useState(second);
   const [pageNumber, setPageNumber] = useState(0);
 
+  //pagination math for page display
+  const cryptoCoinPerPage = 10;
+  const pagesVisited = pageNumber + cryptoCoinPerPage;
+
+  const displayUsers = cryptoCoin.slice(
+    pagesVisited,
+    pagesVisited + cryptoCoinPerPage
+  );
   //useEffect hook
   useEffect(() => {
     Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
