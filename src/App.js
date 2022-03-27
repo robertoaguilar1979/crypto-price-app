@@ -10,17 +10,38 @@ function App() {
   const [listOfCoins, setListOfCoins] = useState([]);
   const [searchWord, setSearchWord] = useState("");
   //pagination hooks
-  const [cryptoCoin, setCryptoCoin] = useState(second);
   const [pageNumber, setPageNumber] = useState(0);
 
   //pagination math for page display
-  const cryptoCoinPerPage = 10;
-  const pagesVisited = pageNumber + cryptoCoinPerPage;
+  const listOfCoinsPerPage = 10;
+  const pagesVisited = pageNumber * listOfCoinsPerPage;
 
-  const displayUsers = cryptoCoin.slice(
-    pagesVisited,
-    pagesVisited + cryptoCoinPerPage
-  );
+  //filter search in input
+  const filteredCoins = listOfCoins.filter((coin) => {
+    return coin.name.toLowerCase().includes(searchWord.toLowerCase());
+  });
+
+  //display users that are filtered from input or displayed from axios
+  const displayUsers = filteredCoins
+    .slice(pagesVisited, pagesVisited + listOfCoinsPerPage)
+    .map((coin, index) => {
+      return (
+        // Coins components
+        <Coins
+          key={index}
+          name={coin.name}
+          price={coin.price}
+          symbol={coin.symbol}
+          icon={coin.icon}
+          rank={coin.rank}
+          marketCap={coin.marketCap}
+          volume={coin.volume}
+          priceChange1h={coin.priceChange1h}
+          priceChange1d={coin.priceChange1d}
+          priceChange1w={coin.priceChange1w}
+        />
+      );
+    });
   //useEffect hook
   useEffect(() => {
     Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
@@ -30,13 +51,8 @@ function App() {
     );
   }, []);
 
-  //filter search in input
-  const filteredCoins = listOfCoins.filter((coin) => {
-    return coin.name.toLowerCase().includes(searchWord.toLowerCase());
-  });
-
   // map through coins
-  const mapCoins = filteredCoins.map((coin, index) => {
+  /*const mapCoins = filteredCoins.map((coin, index) => {
     return (
       // Coins components
       <Coins
@@ -53,7 +69,7 @@ function App() {
         priceChange1w={coin.priceChange1w}
       />
     );
-  });
+  });*/
 
   return (
     <div className="App">
@@ -68,7 +84,8 @@ function App() {
           }}
         />
       </div>
-      <div className="list">{mapCoins}</div>
+      <div className="list">{displayUsers}</div>
+      <ReactPaginate />
     </div>
   );
 }
