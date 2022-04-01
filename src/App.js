@@ -72,6 +72,10 @@ function App() {
   });*/
 
   const pageCount = Math.ceil(listOfCoins.length / listOfCoinsPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
   return (
     <div className="App">
       <div className="header">
@@ -87,9 +91,14 @@ function App() {
       </div>
       <div className="list">{displayUsers}</div>
       <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
+        previousLabel={"<Previous"}
+        nextLabel={"Next>"}
         pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationContainer"}
+        activeClassName={"activeClassName"}
+        pageClassName={"liTag"}
+        pageLinkClassName={"aTag"}
       />
     </div>
   );
