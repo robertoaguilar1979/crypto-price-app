@@ -71,6 +71,7 @@ function App() {
     );
   });*/
 
+  const pageCount = Math.ceil(listOfCoins.length / listOfCoinsPerPage);
   return (
     <div className="App">
       <div className="header">
@@ -85,7 +86,11 @@ function App() {
         />
       </div>
       <div className="list">{displayUsers}</div>
-      <ReactPaginate />
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+      />
     </div>
   );
 }
