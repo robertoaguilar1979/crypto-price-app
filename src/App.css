@@ -214,8 +214,10 @@ body {
   border-radius: 3px;
   background-color: rgb(22, 27, 34);
 }
-.activeClassName {
+.activeClassName,
+.activeClassName:hover {
   background-color: #0088cc;
+  pointer-events: none;
 }
 
 .next,
@@ -224,4 +226,10 @@ body {
   padding: 0.5em;
   border-radius: 3px;
   background-color: rgb(22, 27, 34);
+}
+
+.next:hover,
+.previous:hover,
+.liTag:hover {
+  background-color: rgb(48, 59, 75);
 }

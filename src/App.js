@@ -99,6 +99,8 @@ function App() {
         activeClassName={"activeClassName"}
         pageClassName={"liTag"}
         pageLinkClassName={"aTag"}
+        previousClassName={"previous"}
+        nextClassName={"next"}
       />
     </div>
   );
