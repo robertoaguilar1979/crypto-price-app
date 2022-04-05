@@ -223,7 +223,7 @@ body {
 .next,
 .previous {
   cursor: pointer;
-  padding: 0.5em;
+  padding: 0.35em 0.75em;
   border-radius: 3px;
   background-color: rgb(22, 27, 34);
 }
@@ -233,18 +233,25 @@ body {
 .liTag:hover {
   background-color: rgb(48, 59, 75);
 }
-
+.aTag {
+  height: 100%;
+  width: 100%;
+  padding: 0em 0.35em;
+}
 @media (max-width: 460px) {
   .paginationContainer {
     padding: 1.15em;
   }
   .liTag {
-    padding: 0.5em;
-    margin-right: 0.5em;
+    padding: 0.35em;
+    margin-right: 0.35em;
     margin-left: 0.35em;
   }
   .next,
   .previous {
-    padding: 0.2em;
+    padding: 0.25em 0.35em;
+  }
+  .aTag {
+    padding: 0em 0.25em;
   }
 }

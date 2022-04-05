@@ -94,7 +94,7 @@ function App() {
         pageCount={pageCount}
         onPageChange={changePage}
         pageRangeDisplayed={2}
-        marginPagesDisplayed={2}
+        marginPagesDisplayed={1}
         previousLabel={"<Previous"}
         nextLabel={"Next>"}
         containerClassName={"paginationContainer"}
