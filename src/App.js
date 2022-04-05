@@ -91,10 +91,12 @@ function App() {
       </div>
       <div className="list">{displayUsers}</div>
       <ReactPaginate
-        previousLabel={"<Previous"}
-        nextLabel={"Next>"}
         pageCount={pageCount}
         onPageChange={changePage}
+        pageRangeDisplayed={2}
+        marginPagesDisplayed={2}
+        previousLabel={"<Previous"}
+        nextLabel={"Next>"}
         containerClassName={"paginationContainer"}
         activeClassName={"activeClassName"}
         pageClassName={"liTag"}

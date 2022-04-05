@@ -196,7 +196,7 @@ body {
   }
 }
 
-/* css for pagination */
+/******* css for pagination *********/
 
 .paginationContainer {
   display: flex;
@@ -232,4 +232,19 @@ body {
 .previous:hover,
 .liTag:hover {
   background-color: rgb(48, 59, 75);
+}
+
+@media (max-width: 460px) {
+  .paginationContainer {
+    padding: 1.15em;
+  }
+  .liTag {
+    padding: 0.5em;
+    margin-right: 0.5em;
+    margin-left: 0.35em;
+  }
+  .next,
+  .previous {
+    padding: 0.2em;
+  }
 }
