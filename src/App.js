@@ -16,6 +16,15 @@ function App() {
   const listOfCoinsPerPage = 10;
   const pagesVisited = pageNumber * listOfCoinsPerPage;
 
+  //useEffect hook
+  useEffect(() => {
+    Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
+      (response) => {
+        setListOfCoins(response.data.coins);
+      }
+    );
+  }, []);
+
   //filter search in input
   const filteredCoins = listOfCoins.filter((coin) => {
     return coin.name.toLowerCase().includes(searchWord.toLowerCase());
@@ -27,55 +36,16 @@ function App() {
     .map((coin, index) => {
       return (
         // Coins components
-        <Coins
-          key={index}
-          name={coin.name}
-          price={coin.price}
-          symbol={coin.symbol}
-          icon={coin.icon}
-          rank={coin.rank}
-          marketCap={coin.marketCap}
-          volume={coin.volume}
-          priceChange1h={coin.priceChange1h}
-          priceChange1d={coin.priceChange1d}
-          priceChange1w={coin.priceChange1w}
-        />
+        <Coins key={index} coin={coin} />
       );
     });
-  //useEffect hook
-  useEffect(() => {
-    Axios.get("https://api.coinstats.app/public/v1/coins?skip=0").then(
-      (response) => {
-        setListOfCoins(response.data.coins);
-      }
-    );
-  }, []);
-
-  // map through coins
-  /*const mapCoins = filteredCoins.map((coin, index) => {
-    return (
-      // Coins components
-      <Coins
-        key={index}
-        name={coin.name}
-        price={coin.price}
-        symbol={coin.symbol}
-        icon={coin.icon}
-        rank={coin.rank}
-        marketCap={coin.marketCap}
-        volume={coin.volume}
-        priceChange1h={coin.priceChange1h}
-        priceChange1d={coin.priceChange1d}
-        priceChange1w={coin.priceChange1w}
-      />
-    );
-  });*/
 
   const pageCount = Math.ceil(listOfCoins.length / listOfCoinsPerPage);
 
   const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
+
   return (
     <div className="App">
       <div className="header">
@@ -89,7 +59,9 @@ function App() {
           }}
         />
       </div>
+      {/* display list of cryptocurrencies */}
       <div className="list">{displayUsers}</div>
+
       <ReactPaginate
         pageCount={pageCount}
         onPageChange={changePage}

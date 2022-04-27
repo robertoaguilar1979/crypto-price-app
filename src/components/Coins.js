@@ -1,39 +1,28 @@
 import React from "react";
 
-function Coins({
-  name,
-  icon,
-  price,
-  symbol,
-  rank,
-  priceChange1h,
-  priceChange1d,
-  priceChange1w,
-  volume,
-  marketCap,
-}) {
+function Coins({ coin }) {
   return (
     <div className="coin">
       <div>
         <h2>Rank </h2>
-        <p>{rank}</p>
+        <p>{coin.rank}</p>
       </div>
 
       <div className="cryptoName">
-        <img src={icon} alt="crypto icon image" />
-        <p>{name} </p>
+        <img src={coin.icon} alt="crypto icon image" />
+        <p>{coin.name} </p>
       </div>
 
       <div>
         <h2> Symbol </h2>
-        <p>{symbol}</p>
+        <p>{coin.symbol}</p>
       </div>
 
       <div>
         <h2>Price </h2>
         <p>
           $
-          {price.toLocaleString("en-US", {
+          {coin.price.toLocaleString("en-US", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           })}
@@ -41,24 +30,30 @@ function Coins({
       </div>
       <div>
         <h2>1h% </h2>
-        <p className={priceChange1h < 0 ? "red" : "green"}>{priceChange1h}%</p>
+        <p className={coin.priceChange1h < 0 ? "red" : "green"}>
+          {coin.priceChange1h}%
+        </p>
       </div>
 
       <div>
         <h2>24h% </h2>
-        <p className={priceChange1d < 0 ? "red" : "green"}>{priceChange1d}%</p>
+        <p className={coin.priceChange1d < 0 ? "red" : "green"}>
+          {coin.priceChange1d}%
+        </p>
       </div>
 
       <div>
         <h2>7d% </h2>
-        <p className={priceChange1w < 0 ? "red" : "green"}>{priceChange1w}%</p>
+        <p className={coin.priceChange1w < 0 ? "red" : "green"}>
+          {coin.priceChange1w}%
+        </p>
       </div>
 
       <div>
         <h2>24h Volume </h2>
         <p>
           $
-          {parseFloat(volume).toLocaleString("en-US", {
+          {parseFloat(coin.volume).toLocaleString("en-US", {
             minimumFractionDigits: 0,
             maximumFractionDigits: 0,
           })}
@@ -69,7 +64,7 @@ function Coins({
         <h2>Mkt Cap </h2>
         <p>
           $
-          {parseFloat(marketCap).toLocaleString("en-US", {
+          {parseFloat(coin.marketCap).toLocaleString("en-US", {
             minimumFractionDigits: 0,
             maximumFractionDigits: 0,
           })}
